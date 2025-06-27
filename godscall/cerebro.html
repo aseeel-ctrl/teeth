@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+
+  <title>viral</title>
+  <link rel="icon" href="img/icon3.jpg" type="image/png">
+
+  <style>
+    body {
+       background-image: url('img/bg3.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier Prime', monospace;
+      color: #e60514;
+      display: flex;
+         overflow-x: hidden;
+  min-height: 90vh;
+    }
+  .overlay {
+    position: absolute;   
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/guiplay.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 500px;  /* o cover, según convenga */
+    pointer-events: none;      /* para que no interfiera con clicks */
+    z-index: 10;               /* para que esté encima */
+  }
+
+  .content {
+    position: relative;
+    z-index: 20; /* encima del overlay si quieres */
+    padding: 20px;
+    color: #cd001b;
+  }
+  .sidebar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #62a4117c;
+  border: 2px solid #b9ff72;
+  padding: 4px 8px;
+  z-index: 100;
+  font-size: 0.9rem;
+  height: 20px;
+  width: fit-content;
+}
+
+    .sidebar a {
+      display: block;
+      color: #800011;
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+       color: #014a18;
+    }
+
+    .main-content {
+      font-size:1.5rem ;
+      flex: 1;
+      padding: 10px;
+      color:aqua;
+    }
+   .content iframe {
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 0 10px #00000066;
+  border: 2px solid #900020;
+}
+
+.video-ui {
+     position: absolute;   
+    top: 160px;
+    left: 373px;
+    width: 100vw;
+    height: auto;
+      
+  max-width: 300px;
+  margin: 50px auto;
+  text-align: center;
+  z-index: 50;
+}
+
+.controles {
+  position: absolute;
+  bottom: -110px; /* fija la posición desde la parte inferior del contenedor */
+  left: 80%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  z-index: 30;
+  padding-bottom: 10px; /* opcional: un poco de espacio interior */
+}
+
+.boton {
+  width: 40px; /* o el tamaño que prefieras */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.boton:hover {
+  transform: scale(1.1);
+}
+.middlebar {
+     background-image: url('img/sparkle.gif');
+   position: absolute;
+  top: 300px;
+  left: -2px;
+  width: 159%;
+  height: 86px; /* ajusta al alto visual del GUI */
+  background-color: rgb(0, 172, 137); /* ejemplo: semitransparente */
+   border: 4px solid #b9ff72;
+  z-index: 20;
+}
+
+.barra-superior {
+  width: 100%;
+  height: 60px;
+  background-image: url('img/bubbles.gif');
+  background-repeat: repeat-x;
+  background-size: auto 100%; /* alto total, ancho automático */
+}
+
+.boton-cambiar {
+   position: absolute;
+  top: -10px;
+  left: -60px;
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+  z-index: 60;
+  transition: transform 0.2s ease;
+}
+
+.boton-cambiar:hover {
+  transform: scale(1.1);
+}
+.play-me-text {
+  position: absolute;
+  top: 45px; /* ajusta para que quede justo abajo del botón (que está a top: -10px) */
+  left: -60px; /* igual que el botón */
+  width: 40px;  /* igual que el ancho del botón */
+  text-align: center;
+  color: #e60514; /* mismo color rojo */
+  font-weight: bold;
+  font-family: 'Courier Prime', monospace;
+  font-size: 14px;
+  user-select: none; /* para que no se pueda seleccionar */
+  pointer-events: none; /* para que no interfiera con clicks */
+  z-index: 60;
+}
+  </style>
+</head>
+
+<body>
+      <div class="barra-superior"></div>
+  <div class="overlay"></div>
+
+ <div class="video-ui">
+ <video id="miVideo" width="479">
+  <source id="videoSource" src="video/nature.mp4" type="video/mp4">
+  Tu navegador no soporta video.
+</video>
+    <!-- Botón para cambiar video -->
+  <img src="img/guiworld.png" alt="Cambiar video" class="boton-cambiar" onclick="cambiarVideo()">
+<div class="play-me-text">PLAY ME</div>
+  <div class="middlebar"></div>
+
+<div class="controles" id="barraControles">
+  <img src="img/que.png" alt="Inicio" class="boton" id="botonInicio">
+  <img src="img/que.png" alt="Mitad" class="boton" id="botonMitad">
+  <img src="img/que.png" alt="Final" class="boton" id="botonFinal">
+</div>
+
+</div>
+  <div class="sidebar">
+  <a href="index.html">⮐ Volver</a>
+</div>
+
+</body>
+
+<script>
+const video = document.getElementById('miVideo');
+const fuente = document.getElementById('videoSource');
+
+const rutasVideos = [
+  'video/nature.mp4',
+  'video/memes.mp4',
+  'video/weird.mp4'
+];
+
+let videoActual = 0;
+let cortes = [];
+
+function actualizarTimestamps() {
+  const duracion = video.duration;
+
+  if (isNaN(duracion) || duracion < 6) return;
+
+  cortes = [
+    { start: 0, end: duracion / 2 },
+    { start: duracion / 2, end: duracion - 5 },
+    { start: duracion - 5, end: duracion }
+  ];
+
+  clipActual = 0;
+
+  // Asignar los botones
+  document.getElementById('botonInicio').onclick = () => irAClip(0);
+  document.getElementById('botonMitad').onclick = () => irAClip(1);
+  document.getElementById('botonFinal').onclick = () => irAClip(2);
+}
+
+let clipActual = 0;
+
+function irAClip(indice) {
+  if (!cortes[indice]) return;
+  video.currentTime = cortes[indice].start;
+  clipActual = indice;
+  video.play();
+}
+
+video.addEventListener('timeupdate', () => {
+  if (video.currentTime >= cortes[clipActual]?.end) {
+    video.pause();
+  }
+});
+
+function cambiarVideo() {
+  videoActual = (videoActual + 1) % rutasVideos.length;
+  video.pause();
+  fuente.src = rutasVideos[videoActual];
+  video.load();
+
+    // Detecta la barra de controles
+  const barraControles = document.getElementById('barraControles');
+
+  // Ajusta su posición solo si es el segundo video
+  if (videoActual === 1) {
+    barraControles.style.bottom = "-20px"; // más abajo
+  }
+ if (videoActual === 2) {
+    barraControles.style.bottom = "-110px"; // más abajo
+ }
+  // Una vez cargado el nuevo video, calcula los timestamps
+  video.onloadedmetadata = () => {
+    actualizarTimestamps();
+    irAClip(0); // Inicia el primer segmento automáticamente
+  };
+}
+
+// Inicializa timestamps al cargar por primera vez
+video.onloadedmetadata = actualizarTimestamps;
+</script>
+
+</html>

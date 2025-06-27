@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+
+  <title>arte</title>
+  <link rel="icon" href="img/guitrash.png" type="image/png">
+
+  <style>
+    body {
+       background-image: url('img/bg2.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier Prime', monospace;
+      color: #e60514;
+      display: flex;
+    }
+  .overlay {
+    position: absolute;   
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/bg2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px;  /* o cover, según convenga */
+    pointer-events: none;      /* para que no interfiera con clicks */
+    z-index: 10;               /* para que esté encima */
+  }
+.title {
+      font-size: 3 rem;
+      flex: 1;
+      padding: 20px;
+    }
+    
+  .content {
+    position: relative;
+    z-index: 20; /* encima del overlay si quieres */
+    padding: 20px;
+    color: #cd001b;
+  }
+      /* Contenedor de fondo con gif patrón */
+  .album-background {
+    position: relative;
+    width: 90vw;
+    max-width: 900px;
+    height: 900px;
+    background-image: url('img/circle.gif'); /* pon tu gif aquí */
+    background-repeat: repeat;
+    background-size: 100px 100px; /* ajusta tamaño patrón */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+  }
+
+  /* Caja semi-transparente encima */
+  .album-container {
+    background-color: rgba(88, 255, 236, 0.85);
+    width: 85%;
+    height: 90%;
+    border-radius: 8px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Grid para las fotos */
+  .photo-grid {
+    margin: 0;
+  padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+     row-gap: 1px; /* espacio entre filas */
+  column-gap: 10px; /* espacio entre columnas (opcional) */
+    flex-grow: 1;
+  }
+
+  .photo-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* cuadrado */
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  }
+  .photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  }
+
+  /* Texto fecha o descripción abajo */
+  .album-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 12px;
+    font-style: italic;
+  }
+  .sidebar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #62a4117c;
+  border: 2px solid #b9ff72;
+  padding: 4px 8px;
+  z-index: 100;
+  font-size: 0.9rem;
+  height: 20px;
+  width: fit-content;
+}
+
+    .sidebar a {
+      display: block;
+      color: #800011;
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+       color: #014a18;
+    }
+
+    .fondo-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/sparkle.gif'); /* Reemplaza con tu gif */
+  background-repeat: repeat;
+  background-size: auto;
+  z-index: -1;
+  opacity: 0.4; /* ← Ajusta este valor de 0.0 (invisible) a 1.0 (totalmente visible) */
+  pointer-events: none; /* para que no bloquee clics */
+}
+
+  .modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border: 5px solid white;
+    box-shadow: 0 0 20px black;
+  }
+
+  .modal:target {
+    display: flex;
+  }
+
+  .cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .poema-lateral {
+  position: absolute;
+  top: 100px;
+  right: -250px;
+  width: 200px;
+  height:auto;
+  background-color: rgba(255, 255, 255, 0.15); /* fondo suave */
+  border-left: 3px solid #b9ff72;
+  padding: 20px;
+  font-style: italic;
+  font-size: 0.80rem;
+  line-height: 1.6;
+  color: #3a0032;
+  z-index: 10;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.poema-lateral::before {
+  content: "“";
+  font-size: 3rem;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  color: #b9ff72;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="fondo-gif"></div>
+    <div class="overlay"></div>
+   <div class="content">
+     <div class="main-content">
+    <h1></h1>
+      <div class="poema-lateral">
+  Y esa hada era muy fea,<br>
+  como son<br>
+  feos toda mala idea<br>
+  y todo mal corazón.<br><br>
+
+  Cuando naciste, preciosa,<br>
+  no tuviste hadas paganas,<br>
+  ni la horrible Carabosa<br>
+  ni sus graciosas hermanas.<br><br>
+
+  Ni Mab, que en los sueños anda,<br>
+  ni las que celebran fiesta<br>
+  en la mágica floresta<br>
+  de Brocelianda.<br><br>
+
+  Y, ¿sabes tú, niña mía,<br>
+  por qué ningún hada había?<br>
+  Porque allí<br>
+  estaba cerca de ti<br>
+  quien tu nacer bendecía:<br>
+  Reina más que todas ellas:<br>
+  la Reina de las Estrellas,<br>
+  la dulce Virgen María.<br><br>
+
+  Que ella tu senda bendiga,<br>
+  como tu Madre y tu amiga;<br>
+  con sus divinos consuelos<br>
+  no temas infernal guerra;<br>
+  que perfume tus anhelos<br>
+  su nombre que el mal destierra,<br>
+  pues ella aroma los cielos<br>
+  y la tierra.<br><br>
+
+  <span style="display:block; text-align:right; font-style:normal;">― “Las hadas” - Rubén Darío</span>
+        </div>
+  
+    <section class="album-background">
+    <div class="album-container">
+      <div class="photo-grid">
+        <img src="img/img1.jpg" alt="Foto 1" />
+        <img src="img/img2.jpg" alt="Foto 2" />
+        <img src="img/apolonia2.jpg" alt="Foto 3" />
+        <img src="img/fairy1.gif" alt="Foto 4" />
+        <img src="img/img3.jpg" alt="Foto 5" />
+        <img src="img/img6.jpg" alt="Foto 6" />
+        <img src="img/nyan.gif" alt="Foto 7" />
+        <img src="img/img5.jpg" alt="Foto 8" />
+        <img src="img/img4.jpg" alt="Foto 9" />
+        <img src="img/bg5.jpg" alt="Foto 10" />
+        <img src="img/img7.jpg" alt="Foto 11" />
+        <img src="img/img8.jpg" alt="Foto 12" />
+        <img src="img/teeth2.jpg" alt="Foto 13" />
+        <img src="img/elementfairy.jpg" alt="Foto 14" />
+        <img src="img/elementflower.jpg" alt="Foto 15" />
+        <img src="img/ventana.jpg" alt="Foto 16" />
+      </div>
+      <div class="album-footer">SIEMPRE OCUPO ESTAS(pide permiso antes de usarlas!!!)</div>
+    </div>
+  </section>
+
+      
+  <div class= "sidebar a">
+    <a href="index.html"> ¿Volver...? </a>
+  </div>
+   <div id="modal" class="modal">
+  <span class="cerrar-modal" onclick="cerrarModal()">✖</span>
+  <img id="imagenModal" src="" alt="Imagen ampliada">
+  </div>
+
+
+</div>
+ 
+ 
+</body>
+
+<script>
+  const imagenes = document.querySelectorAll('.photo-grid img');
+  const modal = document.getElementById('modal');
+  const imagenModal = document.getElementById('imagenModal');
+
+  imagenes.forEach(img => {
+    img.addEventListener('click', () => {
+      imagenModal.src = img.src;
+      modal.style.display = 'flex';
+    });
+  });
+
+  function cerrarModal() {
+    modal.style.display = 'none';
+  }
+
+  // Opcional: cerrar con tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') cerrarModal();
+  });
+</script>
+</html>

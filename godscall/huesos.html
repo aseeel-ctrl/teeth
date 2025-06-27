@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reglas del Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/elementfairy.jpg" type="image/png">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier Prime', monospace;
+      color: #52002e;
+      background-color: #ffc5e1; /* rosado pastel */
+      background-image: url('img/sparkles.gif'); /* ← tu gif de brillitos */
+      background-repeat: repeat;
+      background-size: 150px;
+      background-position: center;
+      overflow-x: hidden;
+    }
+
+    .reglas-container {
+      max-width: 600px;
+      margin: 100px auto;
+      background-color: rgba(71, 255, 212, 0.705);
+      border: 3px dashed #ff72c4;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(255, 100, 200, 0.5);
+    }
+
+    .reglas-container h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #800044;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px #e75454;
+    }
+
+    .reglas-container ol {
+      list-style-position: inside;
+      padding-left: 0;
+      line-height: 1.8;
+    }
+
+    .reglas-container li {
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .sidebar {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #4eec98cc;
+      border: 2px solid #b9ff72;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      z-index: 200;
+    }
+
+    .sidebar a {
+      color: #800011;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      color: #014a18;
+      text-decoration: underline;
+    }
+
+    .fondo-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/sparkle.gif'); /* Reemplaza con tu gif */
+  background-repeat: repeat;
+  background-size: auto;
+  z-index: -1;
+   background-size: 200px;
+  opacity: 0.4; /* ← Ajusta este valor de 0.0 (invisible) a 1.0 (totalmente visible) */
+  pointer-events: none; /* para que no bloquee clics */
+}
+.decoracion-superior,
+.decoracion-inferior {
+  width: 100%;
+  height: 60px; /* Ajusta la altura según tu PNG */
+  background-image: url('img/elementfairy2.png'); /* tu archivo PNG */
+  background-repeat: repeat-x;
+  background-size: auto 100%; /* para mantener la altura del PNG */
+  position: fixed;
+  left: 0;
+  z-index: 5;
+  pointer-events: none; /* evita que bloquee clics */
+}
+
+.decoracion-superior {
+  top: 0;
+}
+
+.decoracion-inferior {
+  bottom: 0;
+}
+  </style>
+</head>
+<body>
+    <div class="decoracion-inferior"></div>
+    <div class="decoracion-superior"></div>
+<div class="fondo-gif"></div>
+  <div class="reglas-container">
+    <h1>❦ Reglas del Club ❦</h1>
+    <ol>
+      <li>Solo los que han ofrendado dientes pueden ver el verdadero rostro del Hada.</li>
+      <li>El espejo bajo la almohada debe permanecer limpio (no usarlo en luna nueva).</li>
+      <li>No digas su nombre fuera del cuarto de los sueños.</li>
+      <li>Las luces deben estar apagadas cuando se deja la carta.</li>
+      <li>Quien robe un diente que no le pertenece cargará su vejez ajena.</li>
+      <li>Si escuchas a alguien reír durante la reunión, no respondas.</li>
+      <li>La juventud no es gratis. Cada favor será devuelto.</li>
+      <li>Si ves a alguien llorar sangre: protégelo. Está por olvidar su infancia.</li>
+    </ol>
+  </div>
+
+  <div class="sidebar">
+    <a href="index.html">¿Volver...?</a>
+  </div>
+
+</body>
+</html>

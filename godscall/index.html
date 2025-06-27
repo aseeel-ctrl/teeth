@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+
+  <title>dónde</title>
+  <link rel="icon" href="iconstar.png" type="image/png">
+
+  <style>
+    body {
+       background-image: url('img/fondo2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier Prime', monospace;
+      color: #e60514;
+      display: flex;
+    }
+  .overlay {
+    position: absolute;   
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/apolonia2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px;  /* o cover, según convenga */
+    pointer-events: none;      /* para que no interfiera con clicks */
+    z-index: 10;               /* para que esté encima */
+  }
+.title {
+      font-size: 3 rem;
+      flex: 1;
+      padding: 20px;
+    }
+    
+  .content {
+    position: relative;
+    z-index: 20; /* encima del overlay si quieres */
+    padding: 20px;
+    color: #cd001b;
+  }
+    .sidebar {
+      width: 190px;
+      background-color: #11c5a4cb;
+      border-right: 2px solid #b9ff72;
+      height: 60vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #800011;
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+       color: #014a18;
+    }
+
+     .fondo-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/sparkle.gif'); /* Reemplaza con tu gif */
+  background-repeat: repeat;
+  background-size: auto;
+  z-index: -1;
+  opacity: 0.4; /* ← Ajusta este valor de 0.0 (invisible) a 1.0 (totalmente visible) */
+  pointer-events: none; /* para que no bloquee clics */
+}
+
+.fondo-medio {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  background-image: url('img/shep1.gif'); /* reemplaza con tu GIF */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0; /* más bajo que overlay, contenido y estrellitas */
+  pointer-events: none; /* para que no bloquee clics */
+   opacity: 0.6; 
+}
+.gif-repetido-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 180px; /* ajusta según el alto del gif */
+  background-image: url('img/fire.gif'); /* cambia por tu gif */
+  background-repeat: repeat-x;
+  background-size: auto 100%; /* o 80px si quieres forzarlo */
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.8;
+}
+  </style>
+</head>
+
+<body>
+   <div class="fondo-gif"></div>
+     <div class="fondo-medio"></div>
+   <div class="overlay"></div>
+   <div class="content">
+     <div class="title">
+    <h1></h1>
+  </div>
+  <div class= "sidebar a"> 
+    <a href="cerebro.html"> >_> </a>
+    <a href="riñones.html"> mY L1F3!! </a>
+    <a href="hígado.html">A L B U M</a>
+    <a href="estómago.html">BLAHBLAH--</a>
+    <a href="huesos.html"
+    >₊˚ʚᗢ₊˚✧ﾟ.
+      ˖⁺‧₊˚♡˚₊‧⁺˖
+     ⁺˚⋆｡°✩₊✩°｡⋆˚⁺</a>
+    <a href="pulmones.html">...</a>
+  </div>
+  
+</div>
+<div class="gif-repetido-inferior"></div>
+</body>
+</html>
