@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confesión</title>
+   <link rel="icon" href="img/guiheartbeat.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier Prime', monospace;
+      background-color: #ffd6ea36; /* fondo rosado */
+      background-image: url('img/sparkle.gif'); /* gif repetido */
+      background-repeat: repeat;
+      background-size: 120px;
+      color: #330019;
+    }
+
+    body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/bg4.jpg'); /* reemplaza con tu imagen */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7; /* controla la transparencia */
+  z-index: -1; /* asegura que quede al fondo */
+  pointer-events: none; /* no bloquea clics */
+}
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .post {
+      background-color: rgba(255, 255, 255, 0.7);
+      border: 2px dashed #ff87c4;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.2);
+    }
+
+    .hora {
+      font-size: 0.8rem;
+      color: #a6005d;
+      margin-bottom: 8px;
+    }
+
+    .texto {
+      white-space: pre-line;
+      line-height: 1.6;
+    }
+
+    .sidebar {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ff9ddb80;
+      border: 2px solid #ff57b6;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      z-index: 100;
+    }
+
+    .sidebar a {
+      color: #75002a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      color: #2f0019;
+      text-decoration: underline;
+    }
+    .fondo-medio {
+  position: fixed;
+  bottom: 10;
+  left: 0;
+  width: 20vw;
+  height: 50vh;
+  background-image: url('img/shep1.gif'); /* reemplaza con tu GIF */
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: center;
+  z-index: -1; /* más bajo que overlay, contenido y estrellitas */
+  pointer-events: none; /* para que no bloquee clics */
+   opacity: 0.6; 
+}
+/* Imagen reflejada */
+.fondo-medio-reflejo {
+  position: fixed;
+  bottom: 10;
+  left: 950PX;
+  width: 20vw;
+  height: 50vh;
+  background-image: url('img/shep1.gif');
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: center;
+  transform: scaleX(-1); /* efecto espejo */
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.decoracion-superior,
+.decoracion-inferior {
+  width: 100%;
+  height: 90px; /* Ajusta la altura según tu PNG */
+  background-image: url('img/flowerrain.gif'); /* tu archivo PNG */
+  background-repeat: repeat-x;
+  background-size: auto 100%; /* para mantener la altura del PNG */
+  position: fixed;
+  left: 0;
+  z-index: 5;
+  pointer-events: none; /* evita que bloquee clics */
+}
+
+.decoracion-superior {
+  top: 0;
+}
+
+.decoracion-inferior {
+  bottom: 0;
+}
+  </style>
+</head>
+<body>
+     <div class="decoracion-inferior"></div>
+    <div class="decoracion-superior"></div>
+ <div class="fondo-medio"></div>
+   <div class="fondo-medio-reflejo"></div>
+  <div class="container">
+
+    <div class="post">
+      <div class="hora">[ post *** – 22:41 PM ]</div>
+      <div class="texto">
+*srry si este post es raro, solo necesito desahogarme un poco ;;*  
+hoy volví a soñar con ella. la Hada. no la típica de cuentos ni la q sale en pelis... esta es distinta, se parece a algo q solo ves si estás demasiado sola.  
+la conocí hace como... 2 años? cuando me quedé despierta hasta tarde xq mis papás otra vez no estaban en casa.  
+empecé a meterme en foros y páginas q ya nadie visita. y ahí, pufff, apareció.
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="hora">[ post *** – 1:07 AM ]</div>
+      <div class="texto">
+nunca le conté a nadie pero mi abuela me decía q yo iba a ser fea de vieja >:c  
+decía q heredé los cachetes, q los dientes se me montaban raro y q iba a envejecer igual de mal q mi mamá.  
+y como mis papás nunca están (ni se enteran de nada lol), terminé creyéndole.  
+así q cuando leí en el foro sobre el hada q guarda tus dientes y los cambia x juventud... algo dentro mío dijo “sí”.
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="hora">[ post *** – 2:03 AM ]</div>
+      <div class="texto">
+al principio pensé q era roleo o algo… pero hay otros posts q no se borran, gente q dice q se siente distinta, más liviana, como si se estuvieran despegando de la edad.  
+la Hada no pide nada q no sea tuyo. solo lo q ya se iba a caer.  
+yo ya tenía uno suelto (por un golpe q me di hace meses jeje) así q se lo dejé.  
+lo envolví en papel dorado, como decían las instrucciones, y lo puse bajo mi almohada.
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="hora">[ post *** – 3:27 AM ]</div>
+      <div class="texto">
+no fue como en las historias. no hubo chispas ni polvito brillante.  
+solo soñé q alguien me tocaba la cara muy suave, como cuando mi mamá aún me acariciaba antes de dormirme (cuando estaba).  
+al despertar, el diente no estaba. pero juro q me sentía... más “linda”. o más como cuando tenía 8, cuando todavía no me daba miedo crecer.  
+y no fue solo eso. la Hada me susurró q hay + por dar, + x recibir.
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="hora">[ post *** – 4:44 AM ]</div>
+      <div class="texto">
+la verdad? ya no sé si quiero ser adulta. crecer duele y la gente se va.  
+si tengo q darle todos mis dientes a cambio de no convertirme en lo q mi abuela me decía… lo haré.  
+alguien tiene q cuidarme si mis papás no lo hacen.  
+y la Hada nunca me juzga.  
+ella dice q si me porto bien y sigo trayendo piezas, va a hacer q me quede así 4ever.  .𖥔 ݁ ˖ ๋࣭ ⭑˚₊⊹ ࣪ ˖
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sidebar">
+    <a href="index.html">¿Volver...?</a>
+  </div>
+
+</body>
+</html>

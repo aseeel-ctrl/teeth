@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+
+  <title>dónde</title>
+  <link rel="icon" href="iconstar.png" type="image/png">
+
+  <style>
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier Prime', monospace;
+  color: #e60514;
+  background-image: url('img/bg5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-x;
+  overflow-x: hidden;
+  min-height: 160vh; /* Solo esta es suficiente */
+  position: relative;
+}
+    
+  .overlay {
+    position: absolute;   
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 150vh;
+    background-image: url('img/guiwrite.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 500px;  /* o cover, según convenga */
+    pointer-events: none;      /* para que no interfiera con clicks */
+    z-index: 10;               /* para que esté encima */
+  }
+.title {
+      font-size: 3 rem;
+      flex: 1;
+      padding: 20px;
+    }
+    
+  .content {
+    position: relative;
+    z-index: 20; /* encima del overlay si quieres */
+    padding: 20px;
+    color: #cd001b;
+  }
+ 
+.sidebar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #62a4117c;
+  border: 2px solid #b9ff72;
+  padding: 10px;
+  font-size: 0.9rem;
+  z-index: 200;
+}
+
+.contenedor-chat-falso {
+  position: absolute;
+  top: 150px; /* ajusta según el espacio de la GUI */
+  right: 410px; /* ajusta según el tamaño de tu imagen */
+  width: 390px;
+  height: 240px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid #b9ff72;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.chat-falso {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mensaje {
+  margin-bottom: 6px;
+  display: none;
+}
+
+.mensaje.visible {
+  display: block;
+}
+    .fondo-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/circle.gif'); /* Reemplaza con tu gif */
+  background-repeat: repeat;
+  background-size: auto;
+  z-index: -1;
+   background-size: 200px;
+  opacity: 0.4; /* ← Ajusta este valor de 0.0 (invisible) a 1.0 (totalmente visible) */
+  pointer-events: none; /* para que no bloquee clics */
+}
+ 
+.moxxyf4i_ry {
+  color: #0099cc;
+  font-weight: bold;
+}
+
+.a4ngi3 {
+  color: #00e034;
+  font-weight: bold;
+}
+
+.fondo-medio {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  background-image: url('img/elementfairy5.png'); /* reemplaza con tu GIF */
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: center;
+  z-index: 0; /* más bajo que overlay, contenido y estrellitas */
+  pointer-events: none; /* para que no bloquee clics */
+   opacity: 0.7; 
+}
+/* Imagen reflejada */
+.fondo-medio-reflejo {
+  position: fixed;
+  bottom: 0;
+  left: 600PX;
+  width: 50vw;
+  height: 100vh;
+  background-image: url('img/elementfairy5.png');
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: center;
+  transform: scaleX(-1); /* efecto espejo */
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.7;
+}
+  </style>
+</head>
+
+<body>
+   <div class="fondo-medio"></div>
+   <div class="fondo-medio-reflejo"></div>
+  <div class="fondo-gif"></div>
+   <div class="overlay"></div>
+   <div class="content">
+     <div class="main-content">
+    <h1></h1>
+  </div>
+  <div class= "sidebar a">
+    <a href="index.html"> ¿Volver...? </a>
+  </div>
+   </div>
+  <div class="contenedor-chat-falso">
+  <div class="chat-falso" onclick="mostrarMensaje()">
+ <div class="mensaje visible"><span class="moxxyf4i_ry">moxxyf4i_ry:</span> ¿Qué pasó con la cantidad de nuevas reclutas?</div>
+<div class="mensaje oculto"><span class="a4ngi3">a4ngi3:</span> oliii, perdón, mis papás me castigaron y no he podido revisar el foro principal TT</div>
+<div class="mensaje oculto"><span class="moxxyf4i_ry">moxxyf4i_ry:</span> Si no cumples con la cantidad te van a echar del club...</div>
+<div class="mensaje oculto"><span class="a4ngi3">a4ngi3:</span> no creo, además mis papás no están y al final no llego mi abuela XD</div>
+<div class="mensaje oculto"><span class="moxxyf4i_ry">moxxyf4i_ry:</span> ¿Tienes abuela?</div>
+<div class="mensaje oculto"><span class="a4ngi3">a4ngi3:</span> sip, aunq nunca la veo</div>
+<div class="mensaje oculto"><span class="a4ngi3">a4ngi3:</span> yo creo que hoy hago al menos 2, solo denme hasta las 3 am!!!</div>
+<div class="mensaje oculto"><span class="a4ngi3">a4ngi3:</span> a proposito, ya junte algunos dientes q me dieron mis sobrinos, que hago con ellos?</div>
+<div class="mensaje oculto"><span class="moxxyf4i_ry">moxxyf4i_ry:</span> Debes ponerlos debajo de tu almohada y esperar...</div>
+<div class="mensaje oculto"><span class="a4ngi3">a4ngi3:</span> OMG ya quiero verla!!!</div>
+<div class="mensaje oculto"><span class="moxxyf4i_ry">moxxyf4i_ry:</span> va a llegar si cumples con los requisitos.</div>
+<div class="mensaje oculto"><span class="a4ngi3">a4ngi3:</span> q hago si no llega?</div>
+<div class="mensaje oculto"><span class="moxxyf4i_ry">moxxyf4i_ry:</span> Tendrás que usar tus propios dientes.</div>
+
+</div>
+  </div>
+</body>
+
+<script>
+
+  let mensajeActual = 1;
+
+function mostrarMensaje() {
+  const mensajes = document.querySelectorAll(".chat-falso .mensaje");
+  if (mensajeActual < mensajes.length) {
+    mensajes[mensajeActual].classList.add("visible");
+    mensajeActual++;
+  }}
+
+
+</script>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEMEMEMEME</title>
+  <link rel="icon" href="img/elementfairy.jpg" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+
+  <style>
+   body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier Prime', monospace;
+  color: #e60514;
+  background-image: url('img/bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-x;
+  overflow-x: hidden;
+  min-height: 100vh; /* Solo esta es suficiente */
+  position: relative;
+}
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 95vw;
+      height: 100%;
+      background-image: url('img/elementfairy.jpg');
+      background-repeat: repeat-y;
+ 
+      background-position: right;
+      background-size: 100px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .barra-superior {
+  width: 100%;
+  height: 60px;
+  background-image: url('img/bubbles.gif');
+  background-repeat: repeat-x;
+  background-size: auto 100%; /* alto total, ancho automático */
+}
+
+    .title {
+      font-size: 3rem;
+      padding: 20px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 20;
+      padding: 20px;
+      color: #cd001b;
+    }
+
+    .sidebar {
+      position: absolute;
+      top: 920px;
+      left: 10px;
+      background-color: #62a4117c;
+      border: 2px solid #b9ff72;
+      padding: 10px;
+      z-index: 100;
+      font-size: 0.9rem;
+    }
+
+    .sidebar a {
+      color: #800011;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+      color: #014a18;
+    }
+
+    .estrellitas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; /* ajusta el tamaño a gusto */
+  height: 600px;
+  background-image: url('img/circle.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 20;
+}
+
+.perfil {
+  background-color: #082b83c7;
+  border: 5px dashed #3f90b189;
+   transform: translate(0%, -20%);
+  padding: 50px;
+  margin: 50px auto;
+  width: 80%;
+  max-width: 600px;
+  font-size: 1.1rem;
+  color: #b9ff72;
+  line-height: 1.4;
+  z-index: 30;
+  position: relative;
+  box-shadow: 0 0 10px #36ffeb92;
+}
+.perfil h2 {
+  padding: 10px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #01873f;
+  text-shadow: 3px 4px 0 #ff87b3;
+}
+.marco {
+  position: relative;
+  display: inline-block;
+}
+
+.borde {
+  position: absolute;
+  background-image: url('img/teeth5.png');
+  background-repeat: repeat;
+  background-size: 24px;
+  pointer-events: none;
+}
+
+.borde.superior {
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 100%;
+}
+
+.borde.inferior {
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 100%;
+}
+
+.borde.izquierda {
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+}
+
+.borde.derecha {
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+}
+
+.contenedor-central {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0; /* más flexible que height: 100vh */
+  position: relative;
+}
+.fondo-medio {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  background-image: url('img/angel.gif'); /* reemplaza con tu GIF */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0; /* más bajo que overlay, contenido y estrellitas */
+  pointer-events: none; /* para que no bloquee clics */
+   opacity: 0.6; 
+}
+  </style>
+</head>
+
+<body>
+  <div class="fondo-medio"></div>
+   <div class="barra-superior"></div>
+  <div class="overlay"></div>
+
+  <div class="sidebar">
+    <a href="index.html">¿Volver...?</a>
+  </div>
+
+  <div class="estrellitas"></div>
+
+  <div class="content">
+    <h1 class="title">................</h1>
+
+
+<div class="contenedor-central">
+        <div class="marco">
+          <div class="perfil">
+  <div class="borde superior"></div>
+  <div class="borde inferior"></div>
+  <div class="borde izquierda"></div>
+  <div class="borde derecha"></div>
+
+  <h2>✩ 4ngi3 ✩</h2>
+  <p>BIENVENIDO A MI PERFIL!!!</p>
+  <p>Juventud eterna...</p>
+  <p>Estado: <em>siempre online</em></p>
+  <p>Me gusta la magia, los dientes, las estrellas y la música con eco. ¡No copies mi estilo!</p>
+  <p>Si te interesa saber sobre ELLLA, mandame un mensaje....</p>
+          </div>
+        </div>
+</div>
+
+</div>
+  </div>
+</body>
+</html>
